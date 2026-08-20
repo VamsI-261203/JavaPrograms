@@ -1,0 +1,239 @@
+static variable: It is a common variable to all the objects to call values.
+		When we change the value of one object it will change the entire all objects.
+		**Static variables should be called with their class names. not with object names.
+static block: It is a block which calls only once irrespective how many objects you create.
+	Ex:    static {
+			name="Alok";
+		}
+		*static block is called before the constructor
+-----------------------------------------------------------------------------------------------------------------------------
+For every program without object the class never loads.for this problem there is a concept called ForName()
+forname is a method which loads the class
+Syntax:class.forName(className);
+It will throws an exception called ClassNotFoundException.
+without object the class can load by this forname method.
+
+------------------------------------------------------------------------------------------------------------------------------
+private int id=10;          //cannot access
+private String name="vamsi";
+ public String getName(){  |
+	return name;       |We can Access by this getName();
+	}		   |
+
+public int getAge(){       |
+	return age;        |We can access by this getAge();
+}                          |
+
+for geting the data get()
+for setting the data set() //setName(),setAge();
+public void setAge(a){
+	age=a;
+}
+-----------------------------------------------------------------------------------------------------------------------------Constructor:Parameterized
+	    Non-Parameterized constructor
+By default every constructor having super(); and super(n);
+super() will calls the constructor of parent class
+ /*	class A {
+    A() {
+        System.out.println("A constructor");
+    }
+}
+
+class B extends A {
+    B() {
+        super();   // Calls A's constructor
+        System.out.println("B constructor");
+    }
+}
+*/
+this():Calls another constructor of the same class
+-----------------------------------------------------------------------------------------------------------------------------
+wrapper classes:
+wrapper classes in java are the primitive classes
+int-->Integer class
+float-->Float class
+boolean-->Boolean class
+char-->Character class
+Taking a primitive value and storing that in a primitive object/class object this is called Boxing.
+
+Autoboxing: The automated conversion of a primitive data type into its corresponding wrapper class object.
+Unboxing: The automated conversion of a wrapper class object back into its corresponding primitive data type.
+// Autoboxing: Primitive int to Integer Object
+int primitiveInt = 25;
+Integer objectInt = primitiveInt;
+
+// Unboxing: Integer Object back to Primitive int
+Integer anotherObject = Integer.valueOf(50);
+int anotherPrimitive = anotherObject;
+
+//Autoboxing
+int num1=7;
+Integer num=num1;
+//Auto-Unboxing
+int num2=num1;
+
+
+//ParseInt
+It is used to take the string and convert it to integer.
+String str="12";
+int num1=Integer.parseInt(str);
+System.out.println(num1);
+
+-----------------------------------------------------------------------------------------------------------------------------
+Abstract class:
+Abstract method should be in only abstract class;
+Here if we create a class car and then in this created 2 methods as drive and playMusic. Then in playMusic write as System.out.println("Play Music");
+in the drive method nothing written so it shows a error so it should be written something.
+so i take another class wagnoR and extends car.so it have the car features so wagnoR should have drive feature also so we can declare the drive here as System.out.println("Driving"); .We cannot use like this by extending we can use by the keyword called public abstract void drive() before it is public void drive() now abstract is added. And also for every abstract method It should have only abstract class(abstract class car).
+Note: You cannot create object to the abstract class.But you can create reference of object.
+Car obj = new wagnoR();
+obj.drive();
+obj.playMusic();
+
+Interface;
+-----------
+Alternative for the abstract class is Interface instead of writing abstract class for the abstract methods we can write the interface class.
+for the abstraction we use extends keyword to extract
+for the interface we use implements keyword.
+Every Variable in the interface is Final and Static.
+In interface we can implement one or more classes such as class C implements A,B {};
+In abstract class we can extend only one class such as class B extends A{};
+We can extend interface to interface by using extends keyword.
+Types:1.Normal          2.Functional/SAM(single abstract method) 3.Marker Interface.
+      (2/more methods)  (Only 1 method)                             (blank nothing is there in this interface).
+Annotations:
+-----------
+It is simply means a supplement to the compiler or to the runtime.
+when we write a code sometimes we would like to say something to the compiler.we want to supply some extra information
+There are lot of inbuilt annotations available in java---1.@override
+						      ---2.@depricated
+					              ---3.DunctionalInterface("used to make only one interface("SAM")).
+FunctionalInterface is an interface which only have one method inside the class.
+Lambda Expression :It is a very concise way to create a function in functionInterface.
+points to be remembered:  1.It is mainly used with a Functional Interface,collections and streams.(Java 8).
+------------------------  2.Why only for functionalInterface?A lambda does not represent a complete interface. It represents 			    the implementation of one specific method.
+Syntax:
+interface A{                     				|		  |interface A{
+ function add(int i,int j); 					|		  |	 function add(int i,int j);
+}                                                               |             	  |  }
+        A obj=new A;						|		  |
+        public int add(int i,int j){  (W/o Lambda Expression)	|---> With LambdA |  A obj=(i,j) -> i+j; PAF-Parenthesis,
+           return i+j;						|		  |  obj.add();		 arrow,functionbody
+	}
+	obj.add();
+
+.Removes the public int add
+.removes the return keyword
+.removes the parameter datatype
+-----------------------------------------------------------------------------------------------------------------------------
+
+Exceptions:Exceptions are basically runtime errors.Handling the runtime errors is called as Exception Handling.
+try:It will be executed when there is a critical status is there for normal status also it can be used .
+catch:It will catches the exception and will print whatever the user prints.It Executes when we found exception only.
+*To handle the critical statement we have to use try block and if something was wrong then catch will be executed.
+*Exception is a parent of all the Exceptions.and this Exception extends Throwable.Throwable extends Object Class.
+*If we write any statement after the critical status exception then the statement will not be printed.
+as:try{
+    j=18/i   //where i=0;
+    System.out.println("BYE");                         //Here BYE will not print if there is an exception because the after
+   }							try get exception it will throw to catch block so remaining statement
+   catch{						-s after critical exception will not be printed...
+    System.out.println("something went wrong");
+	}
+If you really wants to print bye then you can use finally block which is used to print the statements it is written after the catch/try.it prints irrespective of the exception.
+
+int i=4;
+int j=0;
+try{                                               |Output:
+j=18/i;					   |Hi
+ System.out.println("HI");			   |Hello
+ System.out.println("Hello");			   |Bye
+}						   |
+catch(Exception e){
+System.out.println("Something went wrong"+e);
+}
+System.out.println("bye");
+Runtime Exceptions                                              |Sql Exceptions,IO Exceptions
+1.Athematic Exception			|			|           |
+2.NullpointerException			|Unchecked Exceptions.	|           V
+3.ArrayIndexOutOfBoundException		|			|     Checked Exceptions
+
+Checked Exceptions must and should handle by the user whereas unchecked may or may not be handled by the user
+If you want to create your own exception then create a class which should extend the Exception class.
+throw: it is a keyword which is used to throw an exception and that will be catches by the catch block. suppose try block sends the 0 to print and user dont want it then in the try block we can throw the exception by using throw new ArthematicException().This will throw the exception to catch block and in the catch block it will handle the exception as regularly.This is the usage of throw keyword.
+
+throws:
+It will be used to declare the exception responsibilities to the callers.here if the one method didn't want to handle the exception then it can simply write throws exception so than another method can call the exception handle.Like that every method can throw the exception including the main().If main() also throws the exception without handling try catch then the JVM will handles the exception by printing the stacktrace or else by terminating the code.
+It is not necessary to handle the exception but developers recommended to handle the exception. even in the main() method.
+-----------------------------------------------------------------------------------------------------------------------------
+Thread:  A thread is a smallest unit of execution within the program.
+-------  If you want to execute two things/methods at the same time the we can use threads.
+Here,we cannot execute normal objects in multiple threads.so, we extends a class called Thread to the class.Now we have threads because the classes are become threads.*In every thread we need to have a run() and start() then only it will work.
+start() is for calling the method with object. run() is the method which has the implementation. By this the 2mothods will execute at the same time but not simultaneously exact.Now to get simultaneous of 2 methods we use Thread.sleep().By using this sleep it gives InterruptedEexception.So we should use try catch in both method.Now it runs simultaneously both methods.
+But not all the time in some times method1 is printing 2 times and method2 one time.It depends on scheduling the sleep it will print.
+There are different ways to create a thread till now we have seen by  extending a thread class.
+another method to create a thread is: Using implements Runnable (interface).
+Here, By using runnable instead of extending the Thread class.Then we create the thread by thread t1=new thread(); like this but the obj of the method has no idea with the new thread so we create a object by the reference of runnable by Runnable o=new A() and pass the object o in the thread as thread t1=new thread(o).then start the method it will work.
+(This is all because of runnable interface will not have thread methods as start().so we create a separate thread objects.)
+
+class A extends Thread{					|  class a implements Runnable{
+ public void run(){					|    public void run(){
+	for(int i=0;i<10;i++){				|		for(int i=0;i<10:i++){
+		System.out.println("Hi");		|			System.out.println("Hi");
+	try{						|			try{
+	    Thread.sleep(3);				|				Thread.sleep(3);
+		}catch(InterruptedException e){		|				}catch(InterruptedException e){
+			e.printStack();	}		|					e.printStack();};
+	}						|			}
+	}						|	}
+}							|	}
+class B extends Thread{					|class B implements Runnable{
+ public void run(){					|public void run(){
+	for(int i=0;i<10;i++){				|	for(int i=0;i,10;i++){
+		System.out.println("Hello");		|		System.out.println("hello");
+	try{						|		try{
+	    Thread.sleep(3);				|			Thread.sleep(4);
+		}catch(InterruptedException e){		|		}catch(InterruptedException e){
+			e.printStack();	}		|			e.printStack();}
+	}						|		}
+	}						|	}
+}							|	}
+public class demo{					|public class demo{
+	public static void main(String[] args){		|	public static void main(String[] args){
+	A obj1=new A();					|		Runnable obj1=new A();
+	B obj2=new B();					|		Runnable obj2=new B();
+	obj1.start();					|		Thread t1=new Thread(obj1);
+	try{						|		Thread t2=new Thread(obj2);
+	    Thread.sleep(5);				|		t1.start();
+		}catch(InterruptedException e){		|		t2.start();
+			e.printStack();	}		|			}
+	obj2.start();					|}
+}							|
+}							|
+							|
+							|
+This is by using extend thread. Which will not have the |This is using implements Runnable interface .Which will have the
+simultaneous run in the methods				|simultaneous run in the method.
+-----------------------------------------------------------------------------------------------------------------------------
+In the runnable interface though it is an interface we can convert to lambda expression to the methods by using anonymous object creation.
+
+public class Demo{
+	public static void main(String[] args){
+		Runnable obj1=()->
+			{
+			for(int i=0;i<10;i++){
+				System.out.println("Hi");
+				try{Thread.sleep(3);	}catch(InterruptedException e){e.printStack();}
+			}
+		Thread t1=new Thread(obj1);
+		t1.start();
+Like this we can convert it to Lambda Expression.
+
+Thread Life Cycle: New Thread-->Runnable(interface)--->Running--->Waiting/Blocked--->Terminated.
+Multithreading is the process of executing multiple threads concurrently to improve CPU utilization and application performance.
+***When we print 2 methods as to count using loop then it shows different count at each time if we use synchronization it will show exact count.***
+
+By using synchronize to the method we can achieve the count exactly.
+-----------------------------------------------------------------------------------------------------------------------------
+
+

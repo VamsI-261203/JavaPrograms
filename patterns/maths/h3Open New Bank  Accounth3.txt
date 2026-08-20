@@ -1,0 +1,38 @@
+<h3>Open New Bank  Account</h3>
+        <label >Full Name</label>
+        <input type="text">
+        <br>
+        <label >Father Name</label>
+        <input type="text">
+        <br>
+        <label >Email</label>
+        <input type="email">
+        <br>
+        <label >Phone</label>
+        <input type="number">
+        <br>
+        <label >DOB</label>
+        <input type="date">
+        <br>
+        <label >Gender</label>
+        <input type="radio" value="MALE">Male
+        <input type="radio" value="FEMALE">Female
+        <br>
+        <label >Deposit</label>
+        <input type="number">
+        <br>
+        <label >Account Type</label>
+        <select>
+            <option value="Select Type">Select Type</option>
+            <option value="Savings">Savings</option>
+            <option value="Current">Current</option>
+        </select>
+        <br>
+        <label >Aadhar</label>
+        <input type="number">
+        <br>
+        <label >Address</label>
+        <textarea rows="4" cols="5"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">

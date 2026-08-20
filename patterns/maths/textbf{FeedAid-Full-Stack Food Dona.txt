@@ -1,0 +1,6 @@
+\textbf{FeedAid-Full-Stack Food Donation Management Platform}
+\begin{itemize}
+    \item Developed a full-stack web app to connect food donors with charities.
+    \item Created an interactive UI with React for registrations and donation listings.
+    \item Build a PHP backend to manage data,requests, and secure transactions.
+\end{itemize}

@@ -1,0 +1,47 @@
+touch-is not a git command it is a unix/Linux command used to create file.
+
+1.git init-Initializes the repository
+2.git add .
+3.git status
+4.git commit -m ""
+added a file now to remove that file form repo before commiting we use: git restore --staged names.txt
+wants to add names.txt then: git add names.txt
+5.git commit -m "names.txt files modified"
+6.git log: It is used to show all commands which were done previously
+if u deleted a file bymistakenly then go to git log and copy the commit (f948976743) "this commit is when we added that log commit" and then paste it at bash as: git reset f4954ce65f004560ff7
+
+By the above git reset all the files will be deleted to restrore the one file names.txt.
+
+7.git stash: temporarily save the uncommited changes so we can work whenever needed..
+8.git stash pop: brings back the latest stash and remove it from the stash list
+9.git stash apply: restores the changes and keeps the stash.
+10.git commit → permanently save in Git history
+11.git stash  → temporarily put changes aside
+12.git stash pop → bring those temporary changes back
+
+how to attch the GitHub and git bash:
+  copy the gitrepo link and paste it in git bash as git remove add origin url
+13.git remote -v  you can see the all files and folders.
+14.git push origin master : this id used to share the files and folders and changes to GitHub
+master: branch
+Branches:  use of it is whenever you are working on some other feature create separate branch
+ 15.git branch feature (create)
+ 16.git checkout feature (switch)
+17.git switch -c feature    # Create + Switch
+
+//Dividing main branch and feature branch
+18.git checkout main
+git commit
+//merge the feature branch to main
+19.git merge feature
+20.git push origin master
+origin-which url repo
+master-which branch you want to push.
+
+Fork: by clicking on fork we can clone your fork (it copies the project to use by us which is not ours)
+before fork:github.com/rahul/shopping-app
+After fork:github.com/yourname/shopping-app
+clone:this clones the repo from GitHub to your computer
+21.git clone https://github.com/yourname/shopping-app.git
+Squashing:merging all the commits into one single commit
+	
