@@ -145,7 +145,7 @@ If you really wants to print bye then you can use finally block which is used to
 int i=4;
 int j=0;
 try{                                               |Output:
-j=18/i;					   |Hi
+j=18/i;			     			   |Hi
  System.out.println("HI");			   |Hello
  System.out.println("Hello");			   |Bye
 }						   |
@@ -235,5 +235,147 @@ Multithreading is the process of executing multiple threads concurrently to impr
 
 By using synchronize to the method we can achieve the count exactly.
 -----------------------------------------------------------------------------------------------------------------------------
+Iterator:It let you move through collection one element at a time.There are 3 methods in this.
+1.hasNext().
+2.next().
+3.remove().
+hasNext() checks whether there is another element available.if it is gives true otherwise false
+next() returns the next element and moves the iterator forward.
+remove() removes the element that was most recently returned by next().
+//iterator program..
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+List<String> fruits = new ArrayList<>(
+    Arrays.asList("apple", "banana", "mango")
+);
+
+Iterator<String> it = fruits.iterator();
+
+while (it.hasNext()) {
+    String fruit = it.next();
+
+    if (fruit.equals("banana")) {
+        it.remove();
+    }
+}
+System.out.println(fruits);
+
+The Java Collections Framework is a group of interfaces and classes that help us store, organize, and manipulate groups of objects efficiently.
+
+Collection API
+Collection --Inteface
+Collections--Class
+
+Collection API:It is a framework.The Java Collection API is a set of interfaces and classes used to store and manipulate groups of objects efficiently.
+                  Collection
+                /     |      \
+             List    Set     Queue
+              |       |        |
+          ArrayList  HashSet  PriorityQueue
+          LinkedList TreeSet  Deque
+          Vector    LinkedHashSet
+
+There is another child in Collection that is called MAP.  1.HashMap 2.LinkedHashMap 3.TreeMap.
 
 
+List supports same values,Ordered.
+Set supports uniques values and here main problem is it will not follow the order of index input it will as it want it is neither sorted nor unsorted.
+Set doesn't have index values.
+TreeSet-->It is a set which will produce a sorted set.
+
+List: it is a collection thet maintains order of elements allowing duplicate elements access using indexes.
+The most important list operations are :add(), get(), set(), remove(), contains(), isEmpty(), and clear().
+in list duplicates allowed,list will be in ordered,index-based.
+ArrayList: An ArrayList is a resizable array found in the Java Collections Framework.If you dont know how much size we need 
+---------- ArrayList is used.
+
+Few operations of ArrayList: add(),set(),contains(),remove(),get(),indexOf(),size(),clear().
+-->There is also MultiArrayList in this like multidimensional array.
+ex:
+import java.util.*;
+public class ArrayLish {
+    public static void main(String[] args){
+            Scanner sc=new Scanner(System.in);
+            ArrayList<Integer> list=new ArrayList<>();
+            // list.add(10);
+            // list.add(20);
+            // list.add(100);
+            // list.add(40);
+            // list.add(50);
+            for(int i=0;i<5;i++){
+                list.add(sc.nextInt());
+            }
+            for(int i=0;i<5;i++){
+                System.out.print(list.get(i)+" ");
+            }
+            
+    }
+}
+Array List is an contiguous memory allocation, and it have indexes.
+
+LinkedList:It is not an contiguous memory allocation and it does'nt have indexes wherever we can keep.
+Every element is a node an each node is interlinked with other node which is next to the node. Head is at first one and tail will be points to last one.
+Structure: class Node{
+		int val;
+		Node next;
+		}
+
+//To insert the elements:		|//To insert element at last:first write insertFirst then this function.	
+public void insertFirst(int val){	|public void insertLast(int val){
+		Node node=new Node(val);|	if(tail==null){
+		node.next=head;		|		insertFirst(val);
+		head=node;		|		}
+		if(tail==null){		|	else{   Node node=new Node(val);
+			tail=head;	|		tail.next=node;
+		}			|		tail=node;
+		size++;			|	}size++;
+
+//Insert in the middle of the list: for this 1st write insertFirst, insertLast then this function
+public void insert(int val, int index){
+	if(index==0){
+		insertFirst(val);
+		return;
+		}
+	if(index==size){
+		insertLast(val);
+		return;
+		}
+	else{
+	Node temp=head;
+	for(int i=0;i<index;i++){
+		temp=temp.next;
+		}
+	Node node=new Node(val,temp.next);
+	temp.next=node;
+}
+How to delete some elements in the list:		
+//From first element delete..            |  // delete last::
+int val=head.val; 			 |			
+head.next=head.next; 			 | public int deleteLast(){
+head=head.next;				 |	if(size<=1){
+if(head==null){				 |	deletefirst();
+	tail=null;			 |	}
+}					 |	else{
+size--;					 |	Node secondLast=get(size-2);
+						int val=tail.value;
+						tail=secondLast;
+						tail.next=null;
+						}
+					   return val;
+					  public Node get(int index){
+						Node node =head;
+						for(int i=0;i<index;i++){
+						node=node.next;
+						}
+						return node;
+						}
+
+
+The Stream API (introduced in Java 8) processes collections in a functional style without modifying the original data.
+filter() – Select elements
+map() – Transform elements
+sorted() – Sort data
+distinct() – Remove duplicates
+limit() / skip() – Pagination
+forEach() – Iterate
