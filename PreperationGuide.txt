@@ -314,6 +314,14 @@ public class ArrayLish {
 }
 Array List is an contiguous memory allocation, and it have indexes.
 
+The Stream API (introduced in Java 8) processes collections in a functional style without modifying the original data.
+filter() – Select elements
+map() – Transform elements
+sorted() – Sort data
+distinct() – Remove duplicates
+limit() / skip() – Pagination
+forEach() – Iterate
+
 LinkedList:It is not an contiguous memory allocation and it does'nt have indexes wherever we can keep.
 Every element is a node an each node is interlinked with other node which is next to the node. Head is at first one and tail will be points to last one.
 Structure: class Node{
@@ -352,12 +360,12 @@ public void insert(int val, int index){
 How to delete some elements in the list:		
 //From first element delete..            |  // delete last::
 int val=head.val; 			 |			
-head.next=head.next; 			 | public int deleteLast(){
-head=head.next;				 |	if(size<=1){
-if(head==null){				 |	deletefirst();
-	tail=null;			 |	}
-}					 |	else{
-size--;					 |	Node secondLast=get(size-2);
+head=head.next; 			 | public int deleteLast(){
+if(head==null){				 |	if(size<=1){
+		tail=null;		 |	deletefirst();
+	}				 |	}
+size--;					 |	else{
+					 |	Node secondLast=get(size-2);
 						int val=tail.value;
 						tail=secondLast;
 						tail.next=null;
@@ -372,10 +380,4 @@ size--;					 |	Node secondLast=get(size-2);
 						}
 
 
-The Stream API (introduced in Java 8) processes collections in a functional style without modifying the original data.
-filter() – Select elements
-map() – Transform elements
-sorted() – Sort data
-distinct() – Remove duplicates
-limit() / skip() – Pagination
-forEach() – Iterate
+
