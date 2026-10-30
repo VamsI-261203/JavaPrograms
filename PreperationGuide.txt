@@ -7,12 +7,11 @@ static block: It is a block which calls only once irrespective how many objects 
 		}
 		*static block is called before the constructor
 -----------------------------------------------------------------------------------------------------------------------------
-For every program without object the class never loads.for this problem there is a concept called ForName()
+For every program without object the class never loads. For this problem there is a concept called ForName()
 forname is a method which loads the class
 Syntax:class.forName(className);
 It will throws an exception called ClassNotFoundException.
-without object the class can load by this forname method.
-
+without object the class can load by this forname method.r
 ------------------------------------------------------------------------------------------------------------------------------
 private int id=10;          //cannot access
 private String name="vamsi";
@@ -101,13 +100,22 @@ In abstract class we can extend only one class such as class B extends A{};
 We can extend interface to interface by using extends keyword.
 Types:1.Normal          2.Functional/SAM(single abstract method) 3.Marker Interface.
       (2/more methods)  (Only 1 method)                             (blank nothing is there in this interface).
+---------------------------------------------------------------------------------------------------------------------
+Methods of Object class:
+clone();
+finalize();
+equals();
+hashCode();
+getClass();
+toString();
+
 Annotations:
 -----------
 It is simply means a supplement to the compiler or to the runtime.
 when we write a code sometimes we would like to say something to the compiler.we want to supply some extra information
 There are lot of inbuilt annotations available in java---1.@override
 						      ---2.@depricated
-					              ---3.DunctionalInterface("used to make only one interface("SAM")).
+					              ---3.FunctionalInterface("used to make only one interface("SAM")").
 FunctionalInterface is an interface which only have one method inside the class.
 Lambda Expression :It is a very concise way to create a function in functionInterface.
 points to be remembered:  1.It is mainly used with a Functional Interface,collections and streams.(Java 8).
@@ -127,11 +135,12 @@ interface A{                     				|		  |interface A{
 .removes the parameter datatype
 -----------------------------------------------------------------------------------------------------------------------------
 
-Exceptions:Exceptions are basically runtime errors.Handling the runtime errors is called as Exception Handling.
+Exceptions: exception is an event that occurs during the execution of a program that interrupts the normal flow of program. Handling the runtime errors is called as Exception Handling.
 try:It will be executed when there is a critical status is there for normal status also it can be used .
-catch:It will catches the exception and will print whatever the user prints.It Executes when we found exception only.
-*To handle the critical statement we have to use try block and if something was wrong then catch will be executed.
-*Exception is a parent of all the Exceptions.and this Exception extends Throwable.Throwable extends Object Class.
+catch:It will catches the exception and will print whatever the user prints. It Executes when we found exception only.
+*To handle the critical statement we 
+have to use try block and if something was wrong then catch will be executed.
+*Exception is a parent of all the Exceptions. And this Exception extends Throwable. Throwable extends Object Class.
 *If we write any statement after the critical status exception then the statement will not be printed.
 as:try{
     j=18/i   //where i=0;
@@ -169,7 +178,7 @@ It is not necessary to handle the exception but developers recommended to handle
 Thread:  A thread is a smallest unit of execution within the program.
 -------  If you want to execute two things/methods at the same time the we can use threads.
 Here,we cannot execute normal objects in multiple threads.so, we extends a class called Thread to the class.Now we have threads because the classes are become threads.*In every thread we need to have a run() and start() then only it will work.
-start() is for calling the method with object. run() is the method which has the implementation. By this the 2mothods will execute at the same time but not simultaneously exact.Now to get simultaneous of 2 methods we use Thread.sleep().By using this sleep it gives InterruptedEexception.So we should use try catch in both method.Now it runs simultaneously both methods.
+start() is for calling the method with object. run() is the method which has the implementation. By this the 2mothods will execute at the same time but not simultaneously exact.Now to get simultaneous of 2 methods we use Thread.sleep().By using this sleep it gives InterruptedException.So we should use try catch in both method.Now it runs simultaneously both methods.
 But not all the time in some times method1 is printing 2 times and method2 one time.It depends on scheduling the sleep it will print.
 There are different ways to create a thread till now we have seen by  extending a thread class.
 another method to create a thread is: Using implements Runnable (interface).
@@ -239,7 +248,7 @@ Iterator:It let you move through collection one element at a time.There are 3 me
 1.hasNext().
 2.next().
 3.remove().
-hasNext() checks whether there is another element available.if it is gives true otherwise false
+hasNext() checks whether there is another element available. If it is gives true otherwise false
 next() returns the next element and moves the iterator forward.
 remove() removes the element that was most recently returned by next().
 //iterator program..
@@ -294,7 +303,7 @@ Few operations of ArrayList: add(),set(),contains(),remove(),get(),indexOf(),siz
 -->There is also MultiArrayList in this like multidimensional array.
 ex:
 import java.util.*;
-public class ArrayLish {
+public class ArrayList {
     public static void main(String[] args){
             Scanner sc=new Scanner(System.in);
             ArrayList<Integer> list=new ArrayList<>();
@@ -312,6 +321,7 @@ public class ArrayLish {
             
     }
 }
+
 Array List is an contiguous memory allocation, and it have indexes.
 
 The Stream API (introduced in Java 8) processes collections in a functional style without modifying the original data.
@@ -380,4 +390,5 @@ size--;					 |	else{
 						}
 
 
+-----------------------------------------------------------------------------------------------------------------------------
 
